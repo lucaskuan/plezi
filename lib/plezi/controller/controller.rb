@@ -45,6 +45,7 @@ module Plezi
          mthd = requested_method
          puts "response mthd #{mthd}"
          # puts "m == #{m.nil? ? 'nil' : m.to_s}"
+         puts __send__(mthd) if mthd
          return _pl_ad_httpreview(__send__(mthd)) if mthd
          puts 'no http review return false'
          false
@@ -60,7 +61,6 @@ module Plezi
          params['_method'.freeze] = (params['_method'.freeze] || request.request_method.downcase).to_sym
          puts params.inspect
          method_id = self.class._pl_params2method(params, request.env)
-         puts method_id
          puts method_id.inspect
          puts "---- requested method"
          method_id
