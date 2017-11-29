@@ -46,6 +46,7 @@ module Plezi
          puts "response mthd #{mthd}"
          # puts "m == #{m.nil? ? 'nil' : m.to_s}"
          return _pl_ad_httpreview(__send__(mthd)) if mthd
+         puts 'no http review return false'
          false
       end
 
@@ -208,6 +209,9 @@ module Plezi
       # @private
       # This function is used internally by Plezi, do not call.
       def _pl_ad_httpreview(data)
+         puts "httprview--"
+         puts data.inspect
+         puts "data is ad? #{self.class._pl_is_ad?}"
          return data.to_json if self.class._pl_is_ad? && data.is_a?(Hash)
          data
       end
