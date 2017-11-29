@@ -45,8 +45,8 @@ module Plezi
          mthd = requested_method
          puts "response mthd #{mthd.inspect}"
          # puts "m == #{m.nil? ? 'nil' : m.to_s}"
-puts 'try 1'
-         puts send(mthd) if mthd
+puts self.class
+         
          puts 'try 2'
          puts __send__(mthd) if mthd
          return _pl_ad_httpreview(__send__(mthd)) if mthd
