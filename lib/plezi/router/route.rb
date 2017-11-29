@@ -37,9 +37,10 @@ module Plezi
             return nil unless params
             c = @controller.new
             puts "Initialize controller #{c.class}"
-            puts @controller.instance_methods(false)
 
-            c._pl_respond(request, response, params)
+            respond = c._pl_respond(request, response, params)
+            puts respond.inspect
+            respond
          end
 
          def fits_params(path, request)

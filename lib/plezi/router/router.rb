@@ -28,6 +28,7 @@ module Plezi
             request = Rack::Request.new(env)
             response = Rack::Response.new
             ret = nil
+            puts @routes.inspect
             @routes.each { |route| ret = route.call(request, response); break if ret }
             puts "ret #{ret}"
             puts "app ----"
