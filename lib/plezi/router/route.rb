@@ -39,6 +39,7 @@ module Plezi
             puts "Initialize controller #{c.class}"
 
             respond = c._pl_respond(request, response, params)
+            puts "respond"
             puts respond.inspect
             respond
          end

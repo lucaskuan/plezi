@@ -43,8 +43,11 @@ module Plezi
          @params = params
          @cookies = Cookies.new(request, response)
          mthd = requested_method
-         puts "response mthd #{mthd}"
+         puts "response mthd #{mthd.inspect}"
          # puts "m == #{m.nil? ? 'nil' : m.to_s}"
+puts 'try 1'
+         puts send(mthd) if mthd
+         puts 'try 2'
          puts __send__(mthd) if mthd
          return _pl_ad_httpreview(__send__(mthd)) if mthd
          puts 'no http review return false'
@@ -217,7 +220,7 @@ module Plezi
       def _pl_ad_httpreview(data)
          puts "httprview--"
          puts data.inspect
-         puts "data is ad? #{self.class._pl_is_ad?}"
+         puts self.class._pl_is_ad?.inspect
          return data.to_json if self.class._pl_is_ad? && data.is_a?(Hash)
          data
       end
