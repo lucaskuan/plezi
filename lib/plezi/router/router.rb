@@ -33,10 +33,14 @@ module Plezi
             puts "app ----"
             puts @app
             unless ret
+               puts '-- try calling request'
                return @app.call(env) if @app
+               puts '- no app, set ret'
                ret = ::Plezi::Base::Err404Ctrl.new._pl_respond(request, response, request.params)
             end
+            puts 'write response'
             response.write(ret) if ret.is_a?(String)
+            puts response.inspect
             return response.finish
          rescue => e
             puts e.message, e.backtrace
