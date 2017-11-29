@@ -56,8 +56,14 @@ module Plezi
       #
       # For Websocket connections this method is most likely to return :preform_upgrade
       def requested_method
+         puts "requested_method ---"
          params['_method'.freeze] = (params['_method'.freeze] || request.request_method.downcase).to_sym
-         self.class._pl_params2method(params, request.env)
+         puts params.inspect
+         method_id = self.class._pl_params2method(params, request.env)
+         puts method_id
+         puts method_id.inspect
+         puts "---- requested method"
+         method_id
       end
 
       # Renders the requested template (should be a string, subfolders are fine).
