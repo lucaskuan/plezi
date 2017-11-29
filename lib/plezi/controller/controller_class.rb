@@ -112,7 +112,7 @@ module Plezi
             par_id = params['id'.freeze]
             meth_id = _pl_get_map[par_id]
             return meth_id if par_id && meth_id
-            # puts "matching against #{params}"
+            puts "matching against #{params}"
             case params['_method'.freeze]
             when :get # since this is common, it's pushed upwards.
                if env['HTTP_UPGRADE'.freeze] && _pl_is_websocket? && env['HTTP_UPGRADE'.freeze].downcase.start_with?('websocket'.freeze)

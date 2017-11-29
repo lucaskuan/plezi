@@ -37,7 +37,7 @@ module Plezi
             return nil unless params
             c = @controller.new
             puts "Initialize controller #{c.class}"
-            puts c.method_defined? :index
+            puts @controller.instance_methods(false)
 
             c._pl_respond(request, response, params)
          end
