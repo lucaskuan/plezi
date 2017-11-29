@@ -57,7 +57,7 @@ module Plezi
          end
 
          def match(req_path, request = nil)
-            # puts "#{req_path} starts with #{@prefix}? #{req_path.start_with?(@prefix)}"
+            puts "#{req_path} starts with #{@prefix}? #{req_path.start_with?(@prefix)}"
             req_path.start_with?(@prefix) && fits_params(req_path, request)
          end
 
