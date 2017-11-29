@@ -43,6 +43,7 @@ module Plezi
          @params = params
          @cookies = Cookies.new(request, response)
          mthd = requested_method
+         puts "response mthd #{mthd}"
          # puts "m == #{m.nil? ? 'nil' : m.to_s}"
          return _pl_ad_httpreview(__send__(mthd)) if mthd
          false
