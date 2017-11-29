@@ -30,7 +30,8 @@ module Plezi
             ret = nil
             puts @routes.inspect
             @routes.each { |route| ret = route.call(request, response); break if ret }
-            puts "ret #{ret}"
+            puts "ret"
+            puts ret.inspect
             puts "app ----"
             puts @app
             unless ret
