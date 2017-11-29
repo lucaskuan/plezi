@@ -36,7 +36,7 @@ module Plezi
             params = match(request.path_info, request)
             return nil unless params
             c = @controller.new
-            puts "Initialize controller #{c}"
+            puts "Initialize controller #{c.class}"
             c._pl_respond(request, response, params)
          end
 
