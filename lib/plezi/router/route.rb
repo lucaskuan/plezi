@@ -43,9 +43,9 @@ module Plezi
             params = (Thread.current[@route_id] ||= {}).clear
             params.default_proc = Plezi.hash_proc_4symstr
             params.update request.params.to_h if request && request.params
-            # puts "cutting: #{path[(@prefix_length)..-1] ? path[(@prefix_length + 1)..-1] : 'nil'}"
+            puts "cutting: #{path[(@prefix_length)..-1] ? path[(@prefix_length + 1)..-1] : 'nil'}"
             pa = (path[@prefix_length..-1] || ''.freeze).split('/'.freeze)
-            # puts "check param count: #{pa}"
+            puts "check param count: #{pa}"
             return false unless @params_range.include?(pa.length)
             @param_names.each do |key|
                next if pa[0].nil?
