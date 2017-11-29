@@ -23,6 +23,8 @@ module Plezi
 
          # called when an HTTP request had arrived
          def call(env)
+            puts 'Incoming HTTP request'
+            puts env.inspect
             request = Rack::Request.new(env)
             response = Rack::Response.new
             ret = nil
