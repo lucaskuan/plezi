@@ -29,6 +29,9 @@ module Plezi
             response = Rack::Response.new
             ret = nil
             @routes.each { |route| ret = route.call(request, response); break if ret }
+            puts "ret #{ret}"
+            puts "app ----"
+            puts @app
             unless ret
                return @app.call(env) if @app
                ret = ::Plezi::Base::Err404Ctrl.new._pl_respond(request, response, request.params)
